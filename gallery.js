@@ -1,25 +1,21 @@
-async function getUserData() {
-    const response = await fetch("https://api.thecatapi.com/v1/breeds");
-    const jsonData = await response.json();
+const API_KEY = "live_x7U4nuj5viLsb8BVMQQxP3sBCBtj0xtuD7Lwp3wePUVG4XehL2UNwVem78L4PuSB";
 
-}
-function renderCharacters(characters) {
-    characters.forEach(character => {
+fetch(`https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=&api_key=${API_KEY}`)
+    .then(response => response.json())
+    .then(data => {renderCats(data)
+});
+const cardsContainer = document.querySelector('#cards-container');
+function renderCats(cats) {
+    cats.forEach(cat => {
         const div = document.createElement('div');
         const image = document.createElement('img');
-        const name = document.createElement('h3');
-        const species = document.createElement('h3');
         const like = document.createElement('button');
         div.classList = 'card';
         image.classList = 'card-img';
         like.classList = 'empty';
-        image.src = character.image;
-        name.innerText = ` Name: ${character.name} `;
-        species.innerText = ` Species: ${character.species} `;
+        image.src = cat.url;
         like.textContent = 'like';
         div.appendChild(image);
-        div.appendChild(name);
-        div.appendChild(species);
         div.appendChild(like);
         cardsContainer.appendChild(div);
     });

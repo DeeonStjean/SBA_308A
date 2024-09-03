@@ -1,20 +1,8 @@
-var menuLinks = [
-    {text: 'Home', class: '/index.html'},
-    {text: 'Breed', class: '/Breed'},
-    {text: 'search', class:'/search'},
-];
 let topMenuEl = document.getElementById("top-menu");
 topMenuEl.style.height = "100%";
 topMenuEl.style.backgroundColor = "var(--top-menu-bg)";
 topMenuEl.classList.add("flex-around");
 
-menuLinks.forEach((link)=>{
-    const a=document.createElement("a");
-    a.setAttribute("href",link.href);
-    a.textContent=link.text;
-    topMenuEl.appendChild(a);
-});
-const topMenuLinks = document.querySelectorAll("a");
 
 const API_KEY = "live_x7U4nuj5viLsb8BVMQQxP3sBCBtj0xtuD7Lwp3wePUVG4XehL2UNwVem78L4PuSB";
 
