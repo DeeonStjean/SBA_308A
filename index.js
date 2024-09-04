@@ -1,4 +1,6 @@
 import {renderCats} from './gallery.js'
+import {displayInfo} from "./breed.js"
+import { start } from './Carousel.js';
 let topMenuEl = document.getElementById("top-menu");
 topMenuEl.style.height = "100%";
 topMenuEl.style.backgroundColor = "var(--top-menu-bg)";
@@ -12,7 +14,6 @@ const userName= document.getElementById('user');
 const userEmail= document.getElementById('email');
 const button= document.getElementById('newUser');
 //const username= document.getElementById('');
-
 
 async function getUserData() {
     try{
@@ -31,6 +32,7 @@ button.addEventListener('click', getUserData);
 
 
 renderCats();
-
+start();
+displayInfo();
 
 
