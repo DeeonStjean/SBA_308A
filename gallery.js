@@ -4,7 +4,7 @@ fetch(`https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=&api_key=${
     .then(response => response.json())
     .then(data => {renderCats(data)
 });
-const cardsContainer = document.getElementById('cards-container');
+const cardsContainer = document.querySelector('#cards-container');
 export function renderCats(cats) {
     cats.forEach(cat => {
         const div = document.createElement('div');
