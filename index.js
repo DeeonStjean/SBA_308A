@@ -1,3 +1,4 @@
+import {renderCats} from './gallery.js'
 let topMenuEl = document.getElementById("top-menu");
 topMenuEl.style.height = "100%";
 topMenuEl.style.backgroundColor = "var(--top-menu-bg)";
@@ -14,14 +15,22 @@ const button= document.getElementById('newUser');
 
 
 async function getUserData() {
-    const response = await fetch("https://api.thecatapi.com/v1/images/search");
-    const jsonData = await response.json();
-    const user= jsonData[0];
-    userImage.src=user.url;
-    console.log(jsonData);
-    console.log(userImage.src);
+    try{
+        const response = await fetch("https://api.thecatapi.com/v1/images/search");
+        const jsonData = await response.json();
+        const user= jsonData[0];
+        userImage.src=user.url;
+        console.log(jsonData);
+        console.log(userImage.src);
+    }catch(error){
+        console.log(error);
+    }
 }
 getUserData();
 button.addEventListener('click', getUserData);
+
+
+renderCats();
+
 
 
